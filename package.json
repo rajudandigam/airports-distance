@@ -1,0 +1,14 @@
+{
+  "name": "airports_distance",
+  "version": "1.0.0",
+  "description": "A web app to find the distance between two given airports",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "~1.2.0"
+  },
+  "author": "Raju Dandigam",
+  "license": "ISC"
+}
