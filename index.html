@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Airports Distance</title>
+
+	<link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+	<header>
+		Airports Distance
+	</header>
+	<main>
+		<div id="MainContainer" class="airports-container">
+			<section class="airports-section">
+				<form id="DistanceForm" autocomplete="off" class="airport-form">
+					<fieldset>
+						<legend>Enter Airports</legend>
+						<div class="airports-suggestions">
+							<div id="AirportInputs">
+								<input type="text" id="FromAirport" name="FromAirport" class="airport-input" required placeholder="Enter From Airport" />
+								<input type="text" id="ToAirport" name="ToAirport" class="airport-input" required placeholder="Enter Destination Airport" />
+							</div>
+							<ul id="SuggestionList" class="suggestion-list"></ul>
+						</div>
+						<div class="button-container">
+							<button type="submit" class="airport-button">Find Distance</button>
+						</div>
+					</fieldset>
+					<section id="DistanceContainer" class="is-hidden">
+						<p>The Distance between <span id="FromAirportSpan"> </span> and <span id="ToAirportSpan"></span> is <span id="DistanceSpan"></span> Nautical Miles</p>
+					</section>
+				</form>
+			</section>
+			<section>
+				<div id="MapContainer" class="map-container">
+					
+				</div>	
+			</section>
+		</div>
+	</main>
+	<footer>
+		copyrights reserved @Raju Dandigam
+	</footer>
+
+	<script type="text/javascript" src="src/index.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_M0bKK_jhZHpxr3e7ECf_f8p9dzEMCI&callback=initMap"></script>
+</body>
+</html>
