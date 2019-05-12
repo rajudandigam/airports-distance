@@ -24,6 +24,51 @@
 	suggestionList.addEventListener('click', onSuggestionClick);
 	distanceForm.addEventListener('submit', findAirportsDistance);
 
+	//Event handler of airport input keyup to populate the suggested airports
+	function onAirportKeyUp(event) {
+		var targetElement = event.target,
+			keyValue = targetElement.value,
+			liItems;
+
+		suggestionList.innerHTML = '';
+
+		if(!keyValue.length) {
+			fromAirportObj = null;
+			toAirportObj = null;
+			return;
+		}
+		isFromAirport = targetElement.id === "FromAirport" ? true : false;
+		if(isFromAirport) {
+			suggestionList.classList.remove('float-right');
+		} else {
+			suggestionList.classList.add('float-right');
+		}
+		getFilteredAirports(keyValue.toLowerCase());
+		liItems = getSuggestionListItems(); 
+		suggestionList.appendChild(liItems);
+	}
+
+	//On selection of suggested airport sets the input value
+	function onSuggestionClick(event) {
+		var targetElement = event.target,
+			airportCode = targetElement.id,
+			fromInput = airportInputs.querySelector('#FromAirport'),
+			toInput = airportInputs.querySelector('#ToAirport'),
+			airportObj;
+
+		airportObj = autoList.find(function(item) { 
+			return item.code === airportCode; 
+		});
+		if(isFromAirport) {
+			fromInput.value = airportObj.name;
+			fromAirportObj = airportObj;
+		} else {
+			toInput.value = airportObj.name;
+			toAirportObj = airportObj;
+		}
+		suggestionList.innerHTML = '';
+	}
+
 })();
 
 //Google Map Initialization
